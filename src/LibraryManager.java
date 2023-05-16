@@ -10,22 +10,30 @@ public class LibraryManager<T extends LibraryItem> implements LibraryOperations<
 
     @Override
     public void addItem(T item) {
-        items.add(item);
-        System.out.println(item.getItemType() + " added to collection.");
+        if (items.contains(item)) {
+            System.out.println(item.getItemType() + " is already in the collection.");
+        } else {
+            items.add(item);
+            System.out.println(item.getItemType() + " added to collection.");
+        }
     }
 
     @Override
     public void removeItem(T item) {
         if (items.remove(item)) {
-            System.out.println(item.getItemType() + " removed from collection.") ;
+            System.out.println(item.getItemType() + " removed from collection.");
         }
     }
 
     @Override
     public void displayItems() {
         System.out.println("Library collection: ");
-        for (T item : items) {
-            System.out.println(item.getItemDetails());
+        if (items.isEmpty()) {
+            System.out.println("There is nothing in the collection. Please add items.");
+        } else {
+            for (T item : items) {
+                System.out.println(item.getItemDetails());
+            }
         }
     }
 }

@@ -13,16 +13,25 @@ public class LibraryApp {
 
         LibraryManager<LibraryItem> libraryManager = new LibraryManager<>();
 
+        //testing empty library
+        libraryManager.displayItems();
+
+        //add books
         libraryManager.addItem(book1);
         libraryManager.addItem(book2);
         libraryManager.addItem(book3);
 
-        libraryManager.displayItems();
+        //testing duplicate
+        libraryManager.addItem(book2);
 
+        //add dvds
         libraryManager.addItem(dvd1);
         libraryManager.addItem(dvd2);
         libraryManager.addItem(dvd3);
 
+        libraryManager.displayItems();
+
+        //testing removal
         libraryManager.removeItem(book2);
         libraryManager.removeItem(dvd3);
 
