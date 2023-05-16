@@ -22,6 +22,8 @@ public class LibraryManager<T extends LibraryItem> implements LibraryOperations<
     public void removeItem(T item) {
         if (items.remove(item)) {
             System.out.println(item.getItemType() + " removed from collection.");
+        } else {
+            System.out.println("Invalid request. Item is not in the current collection.");
         }
     }
 
